@@ -1,7 +1,7 @@
 
 <div class="card align-middle bg-transparent mt-4 position-relative">
   <img src="images/viewsImg.png" class="card-img" alt="marco">
-  <div class="card-body card-img-overlay text-center position-absolute top-50 start-50 translate-middle">
+  <div class="card-body mt-4 card-img-overlay text-center position-absolute top-50 start-50 translate-middle">
     <h1 class="card-title">Bienvenid@!</h1>
     <p class="card-text">ENTER/TAIN ME es un sitio pensado para toda persona en búsqueda de entretenimiento en vivo. Ya sea que ofrezcas servicios, o los estés buscando, estás en el lugar indicado.</p>
     <div class="card-footer">
@@ -13,9 +13,12 @@
         <span></span>
         <label for="input-password">Contraseña:</label>
         <input type="password" name="password" id="input-password" placeholder="Contraseña">
-        <a href='/userProfile' class="btn btn-primary mt-3">INICIAR SESIÓN</a>
+        <button type="submit" class="btn-primary mt-3">INICIAR SESIÓN</button>
+        {{#if errorMessage}}
+          <p class="error">{{errorMessage}}</p>
+        {{/if}}
       </form>
-      <p class="card-text text-muted">Si aún no tienes cuenta, regístrate ahora.</p>
+      <p class="card-text text-muted mt-3">Si aún no tienes cuenta, regístrate ahora.</p>
       <a href="/registrarse" class="btn btn-primary">REGISTRARSE</a>
     </div>
   </div>

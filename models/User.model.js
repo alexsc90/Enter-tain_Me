@@ -20,6 +20,10 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'El campo contraseña debe ser llenado']
   },
+  rol: {
+    type: String,
+    enum: ['cliente', 'servidor']
+  },
   phoneNumber: Number,
   image: String,
   service: {

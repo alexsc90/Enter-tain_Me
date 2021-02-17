@@ -30,12 +30,12 @@ router.post('/registrarse', fileUploader.single('image'), (req, res, next) => {
     .then(salt => bcryptjs.hash(password, salt))
     .then(passwordHash => {
       return User.create({
-        name, email, passwordHash, phoneNumber, image: req.file.path, service, description
+        name, email, passwordHash, phoneNumber, image: req.file.path, service, description, rol: 'servidor'
       })
     })
     .then(userFromDB => {
       console.log('Newly created user is: ', userFromDB);
-      res.redirect('/userProfile');
+      res.redirect('/inicio');
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -50,8 +50,47 @@ router.post('/registrarse', fileUploader.single('image'), (req, res, next) => {
     });
 })
 
-router.get('/userProfile', (req, res) => {
-  res.render('users/user-profile', { userInSession: req.session.currentUser });
+router.post('/inicio', (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
+  const { email, password } = req.body;
+  if (email === '' || password === '') {
+    res.render('home', {
+      errorMessage: 'Por favor ingresa ambos, email y password para iniciar sesión.'
+    });
+    return;
+  }
+  User.findOne({ email }) // <== check if there's user with the provided email
+        .then(user => {
+          if (!user) {
+            res.render('home', {
+              errorMessage: 'Email no registrado.'
+            });
+            return;
+          }
+          else if (bcryptjs.compareSync(password, user.passwordHash)) {
+            
+            req.session.currentUser = user;
+            if(user.rol === 'servidor') {
+              res.redirect('/perfil');
+            } else {
+              res.redirect('/usuarios')
+            }
+
+          } else {
+            res.render('home', { errorMessage: 'Contraseña incorrecta.' });
+          }
+        })
+        .catch(error => next(error));
 });
+
+router.get('/perfil', (req, res, next) => {
+  res.render('users/user-profile', {userInSession: req.session.currentUser})
+    console.log(userInSession)
+})
+
+router.get('/usuarios', (req, res, next) => {
+  res.render('users/client-profile', {userInSession: req.session.currentUser})
+})
+
 
 module.exports = router
