@@ -11,8 +11,8 @@ module.exports = app => {
       saveUninitialized: false,
       cookie: {
         sameSite: false,
-        httpOnly: true,
-        maxAge: 60000 * 60 * 24 // 60 * 1000 ms === 1 min
+        httpOnly: true
+        //maxAge: 60000 * 60 * 24 // 60 * 1000 ms === 1 min
       },
       store: new MongoStore({
         // <== ADDED !!!

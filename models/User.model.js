@@ -26,10 +26,7 @@ const userSchema = new Schema({
   },
   phoneNumber: Number,
   image: String,
-  service: {
-    type: String,
-    enum: ['infantil', 'público general'] 
-  },
+  service: [{type: Schema.Types.ObjectId, ref:'Service'}],
   description: String
 },
   {

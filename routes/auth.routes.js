@@ -92,5 +92,9 @@ router.get('/usuarios', (req, res, next) => {
   res.render('users/client-profile', {userInSession: req.session.currentUser})
 })
 
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/inicio')
+})
 
 module.exports = router

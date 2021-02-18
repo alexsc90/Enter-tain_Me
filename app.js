@@ -53,6 +53,9 @@ app.use('/', auth);
 const client = require('./routes/client.routes');
 app.use('/', client);
 
+const service = require('./routes/service.routes');
+app.use('/', service);
+
 
 app.use((req, res, next) => next(createError(404)));
 // Catch all error handler
