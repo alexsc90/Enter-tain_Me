@@ -1,0 +1,27 @@
+<h3>Agrega un servicio</h3>
+
+<form action="/servicios/agregar" method="POST" enctype="multipart/form-data">
+  <label>
+    Servicio: 
+    <input type="text" name="name" placeholder="servicio a ofrecer" />
+  </label>
+  <label>
+    Nombre de usuario:
+  <input type="text" name="artist" placeholder="nombre de usuario" />
+  </label>
+  <label>
+    Área artística:
+    <input type="text" name="area" placeholder="e.j.: Teatro" />
+  </label>
+  <label>
+    Audiencia:
+    <input type="text" name="public" placeholder="tipo de público" />
+  </label>
+  <label>
+    Foto de actividad:
+    <input type="file" name="image" placeholder="foto muestra" />
+  </label>
+
+  <button type="submit">Agregar Servicio</button>
+  
+</form>

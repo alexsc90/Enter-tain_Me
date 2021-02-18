@@ -56,6 +56,8 @@ app.use('/', client);
 const service = require('./routes/service.routes');
 app.use('/', service);
 
+const artist = require('./routes/artist.routes');
+app.use('/', artist)
 
 app.use((req, res, next) => next(createError(404)));
 // Catch all error handler

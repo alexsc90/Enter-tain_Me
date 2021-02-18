@@ -1,0 +1,21 @@
+{{#if userInSession}}
+
+<h3>Bienvenid@, {{userInSession.name}}</h3>
+
+<p>Este es nuestro catálogo de artistas proporcionando servicios:</p>
+
+{{#each users}}
+
+<img src="{{this.image}}" alt="foto" style="width: 300px; height:500px"/>
+<h5>Nombre de usuario:  {{this.name}}</h5>
+<h5>Correo electrónico: {{this.email}}</h5>
+<h5>Número de contacto: {{this.phoneNumber}}</h5>
+<p>Área(s) artísticas:  {{this.area}}</p>
+
+{{/each}}
+
+{{else}}
+
+<p>Lo sentimos, para acceder a esta sección tienes que iniciar sesión</p>
+<a href="/inicio" class="btn btn-primary mt-3">INICIA SESIÓN</a>
+{{/if}}

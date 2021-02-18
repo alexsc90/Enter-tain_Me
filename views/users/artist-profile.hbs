@@ -1,0 +1,24 @@
+{{#if userInSession}}
+
+<h3>Bienvenid@ a tu perfil, {{userInSession.name}}</h3>
+<img src="{{userInSession.image}}" alt="foto" style="width: 300px; height:500px"/>
+
+<h5>Información de perfil:</h5>
+<p>Área(s) artística(s): {{userInSession.area}}</p>
+<p>Correo electrónico:   {{userInSession.email}}</p>
+<p>Número telefónico:    {{userInSession.phoneNumber}}</p>
+
+<hr>
+<form action="/perfil/actualizar/{{userInSession._id}}" method="GET">
+<button type="submit">Actualizar información</button>
+</form>
+<hr>
+<form action="/perfil/eliminar/{{userInSession._id}}" method="POST">
+<button type="submit">Eliminar cuenta</button>
+</form>
+
+{{else}}
+
+<p>Lo sentimos, aún no has iniciado sesión</p>
+
+{{/if}}

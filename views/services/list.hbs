@@ -1,0 +1,15 @@
+<a href='./servicios/agregar' class="mt-4">Agregar servicio</a>
+
+<hr/>
+
+<h5 class="mt-4">Este es el listado de servicios ofrecidos:</h5>
+
+{{#each services}}
+
+<img src="{{image}}" alt="foto" style="width:300px; height:500px"/>
+<h3>{{name}}</h3>
+<h5>Usuario: {{artist}}</h5>
+<p>Area artística: {{area}}</p>
+<p>Audiencia: {{public}}</p>
+
+{{/each}}

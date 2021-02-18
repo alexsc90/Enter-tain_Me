@@ -1,0 +1,27 @@
+<h3>Actualiza tu perfil</h3>
+
+<h3>Editar usuario: {{user.name}}</h3>
+<form action="/perfil/actualizar/{{user._id}}" method="POST" enctype="multipart/form-data">
+  <label>
+    Nombre de usuario:
+    <input type="text" name="name" value="{{user.name}}" />
+  </label>
+  <label>
+    Correo electrónico:
+    <input type="email" name="email" value="{{user.email}}" />
+  </label>
+  <label>
+    Número telefónico:
+    <input type="number" name="phoneNumber" value="{{user.phoneNumber}}" />
+  </label>
+  <label>
+    Foto de perfil:
+    <input type="file" name="image" value="{{user.image}}" />
+  </label>
+  <label>
+    Area(s) artística(s):
+    <input type="text" name="area" value="{{user.area}}" />
+  </label>
+
+  <button type="submit">Guardar Cambios</button>
+</form>

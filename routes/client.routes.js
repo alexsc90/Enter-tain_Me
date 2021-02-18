@@ -29,8 +29,8 @@ router.post('/registrarse-cliente', (req, res, next) => {
         name, email, passwordHash, rol: 'cliente'
       })
     })
-    .then(userFromDB => {
-      console.log('Newly created user is: ', userFromDB);
+    .then(user => {
+      console.log('Newly created user is: ', user);
       res.redirect('/inicio');
     })
     .catch(error => {
@@ -38,12 +38,22 @@ router.post('/registrarse-cliente', (req, res, next) => {
         res.status(500).render('auth/signup', { errorMessage: error.message });
       } else if (error.code === 11000) {
         res.status(500).render('auth/signup', {
-           errorMessage: 'Nombre y corre electrónico tienen que ser únicos'
+           errorMessage: 'Nombre y corre electrónico tienen que ser únicos, intenta con otro.'
         });
       } else {
         next(error);
       }
     });
+});
+
+router.get('/usuarios', (req, res, next) => {
+  User.find({rol: 'artista'})
+    .then((users) => {
+      console.log(users)
+      res.render('users/list', {users, userInSession: req.session.currentUser})
+    }).catch(error => {
+      next(error)
+    })
 });
 
 module.exports = router

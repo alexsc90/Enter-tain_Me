@@ -4,9 +4,15 @@ const {Schema, model} = require('mongoose');
 const serviceSchema = new Schema({
   name: {
     type: String,
-    enum: ['infantil', 'público general']
+    required: [true, 'Ingresa el nombre del servicio a ofrecer.']
   },
-    users: [{type: Schema.Types.ObjectId, ref:'User'}]
+  artist: {
+    type: String,
+    required: [true, 'Ingresa tu nombre de usuario']
+  },
+  image: String,
+  area: String, 
+  public: String
 });
 
 const Service = model('Service', serviceSchema);

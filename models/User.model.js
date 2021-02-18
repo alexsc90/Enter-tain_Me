@@ -22,12 +22,11 @@ const userSchema = new Schema({
   },
   rol: {
     type: String,
-    enum: ['cliente', 'servidor']
+    enum: ['cliente', 'artista']
   },
   phoneNumber: Number,
   image: String,
-  service: [{type: Schema.Types.ObjectId, ref:'Service'}],
-  description: String
+  area: String
 },
   {
   timestamps: true
