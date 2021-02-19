@@ -12,7 +12,7 @@ module.exports = app => {
       cookie: {
         sameSite: false,
         httpOnly: true,
-        //maxAge: 60000 * 60 * 24 // 60 * 1000 ms === 1 min
+        maxAge: 86400000 // 60 * 1000 ms === 1 min
       },
       store: new MongoStore({
         // <== ADDED !!!

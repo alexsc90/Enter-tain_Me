@@ -1,19 +1,25 @@
 {{#if userInSession}}
+<div class="card align-middle bg-transparent border-0 mt-4 position-relative">
+  <img src="images/viewsImg.png" class="card-img" alt="marco">
+  <div class="card-img-overlay text-center position-absolute top-50 start-50 translate-middle ms-5">
+    <h3 class="card-title">Bienvenid@ a tu perfil, {{userInSession.name}}</h3>
+    <div class="card-body">
+      <img src="{{userInSession.image}}" alt="foto" style="width: 300px; height:500px"/>
 
-<h3>Bienvenid@ a tu perfil, {{userInSession.name}}</h3>
-<img src="{{userInSession.image}}" alt="foto" style="width: 300px; height:500px"/>
+      <h5>Información de perfil:</h5>
+      <p>Área(s) artística(s): {{userInSession.area}}</p>
+      <p>Correo electrónico:   {{userInSession.email}}</p>
+      <p>Número telefónico:    {{userInSession.phoneNumber}}</p>
 
-<h5>Información de perfil:</h5>
-<p>Área(s) artística(s): {{userInSession.area}}</p>
-<p>Correo electrónico:   {{userInSession.email}}</p>
-<p>Número telefónico:    {{userInSession.phoneNumber}}</p>
-
-<hr>
-<a href="/{{userInSession._id}}" class="btn btn-primary">Actualizar información</a>
-<hr>
-<form action="/perfil/eliminar/{{userInSession._id}}" method="POST">
-<button type="submit">Eliminar cuenta</button>
-</form>
+      <hr>
+      <a href="/{{userInSession._id}}" class="btn btn-primary">Actualizar información</a>
+      <hr>
+      <form action="/perfil/eliminar/{{userInSession._id}}" method="POST">
+        <button type="submit" class="btn-danger">Eliminar cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
 
 {{else}}
 

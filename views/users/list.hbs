@@ -1,9 +1,10 @@
 
 {{#if userInSession}}
 <div class="container-fluid row">
-<h3>Bienvenid@, {{userInSession.name}}</h3>
+<h3 class="mt-4">Bienvenid@, {{userInSession.name}}</h3>
 
-<p>Este es nuestro catálogo de artistas proporcionando servicios:</p>
+<hr/>
+<h5>Catálogo  de artistas:</p>
 </div>
 <div class="container-fluid row">
   
@@ -11,7 +12,7 @@
 
 
 
-  <div class="card col-6 ml-4">
+  <div class="card col-6 ml-4 bg-transparent">
     <img src="{{this.image}}" class="img-fluid center" alt="foto"/>
   
       <h5>Nombre de usuario:  {{this.name}}</h5>
