@@ -25,7 +25,10 @@ const userSchema = new Schema({
     enum: ['cliente', 'artista']
   },
   phoneNumber: Number,
-  image: String,
+  image: {
+    type: String,
+    default: 'images/logo.png'
+  },
   area: String
 },
   {

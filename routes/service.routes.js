@@ -14,18 +14,19 @@ router.get('/servicios', (req, res, next) => {
   })
 });
 
-router.get('/servicios/agregar', (req, res, next) => {
+router.get('/agregar', (req, res, next) => {
   res.render('services/create')
 });
 
-router.post('/servicios/agregar', fileUploader.single('image'), (req, res, next) => {
+router.post('/agregar', fileUploader.single('image'), (req, res, next) => {
   const {name, artist, area, public} = req.body;
+  console.log(req.body)
 
   Service.create({
     name, artist, area, public, image: req.file.path
   }).then((service) => {
     res.redirect('/servicios')
-  }).catch(error => {
+  }).catch((error) => {
     res.render('services/create')
   }) 
 });

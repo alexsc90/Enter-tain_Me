@@ -10,7 +10,10 @@ const serviceSchema = new Schema({
     type: String,
     required: [true, 'Ingresa tu nombre de usuario']
   },
-  image: String,
+  image: {
+    type: String,
+    default: 'images/logo.png'
+  },
   area: String, 
   public: String
 });

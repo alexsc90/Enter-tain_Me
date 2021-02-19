@@ -1,15 +1,21 @@
-<a href='./servicios/agregar' class="mt-4">Agregar servicio</a>
+<a href='/agregar' class="mt-4 btn btn-primary">Agregar servicio</a>
 
 <hr/>
 
-<h5 class="mt-4">Este es el listado de servicios ofrecidos:</h5>
+<h5 class="mt-4">Catálogo de servicios:</h5>
+<div class="card-deck w-50 mt-4 align-center">
+  {{#each services}}
+  
+  <div class="card bg-transparent">
+    <img class="card-img-top w-50 p-3" src="{{image}}" alt="foto"/>
+    <div class="card-body text-center">  
+        <h3 class="card-title">{{name}}</h3>
+        <h5 class="card-text">Usuario: {{artist}}</h5>
+        <p class="card-text">Area artística: {{area}}</p>
+        <p class="card-text">Audiencia: {{public}}</p>
+    </div>
+  </div>
 
-{{#each services}}
+  {{/each}}
 
-<img src="{{image}}" alt="foto" style="width:300px; height:500px"/>
-<h3>{{name}}</h3>
-<h5>Usuario: {{artist}}</h5>
-<p>Area artística: {{area}}</p>
-<p>Audiencia: {{public}}</p>
-
-{{/each}}
+</div>

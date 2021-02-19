@@ -10,7 +10,7 @@ router.get('/perfil', (req, res, next) => {
   res.render('users/artist-profile', {userInSession: req.session.currentUser})
 });
 
-router.get('/perfil/actualizar/:id', (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   const {id} = req.params
 
   User.findById(id)

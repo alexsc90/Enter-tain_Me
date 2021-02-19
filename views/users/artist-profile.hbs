@@ -9,7 +9,7 @@
 <p>Número telefónico:    {{userInSession.phoneNumber}}</p>
 
 <hr>
-<a href="/perfil/actualizar/{{userInSession._id}}">Actualizar información</a>
+<a href="/{{userInSession._id}}" class="btn btn-primary">Actualizar información</a>
 <hr>
 <form action="/perfil/eliminar/{{userInSession._id}}" method="POST">
 <button type="submit">Eliminar cuenta</button>
@@ -17,6 +17,12 @@
 
 {{else}}
 
-<p>Lo sentimos, aún no has iniciado sesión</p>
+<div class="card bg-dark text-white mt-4">
+  <img src="images/indexImg.png" class="card-img" alt="background">
+  <div class="card-img-overlay">
+    <h3>Lo sentimos, para acceder a esta sección tienes que iniciar sesión</h3>
+    <a href="/inicio" class="btn btn-primary mt-3">INICIA SESIÓN</a>
+  </div>
+ </div> 
 
 {{/if}}
