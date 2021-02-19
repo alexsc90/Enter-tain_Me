@@ -25,7 +25,7 @@ router.post('/perfil/actualizar/:id', fileUploader.single('image'), (req, res, n
 
   User.findByIdAndUpdate(id, {name, email, phoneNumber, image: req.file.path, area}, {new: true})
   .then((user) => {
-    res.redirect(`/perfil/${user.id}`)
+    res.redirect("/perfil")
   }).catch(error => next(error))
 });
 

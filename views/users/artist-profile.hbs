@@ -9,9 +9,7 @@
 <p>Número telefónico:    {{userInSession.phoneNumber}}</p>
 
 <hr>
-<form action="/perfil/actualizar/{{userInSession._id}}" method="GET">
-<button type="submit">Actualizar información</button>
-</form>
+<a href="/perfil/actualizar/{{userInSession._id}}">Actualizar información</a>
 <hr>
 <form action="/perfil/eliminar/{{userInSession._id}}" method="POST">
 <button type="submit">Eliminar cuenta</button>
